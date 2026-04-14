@@ -344,9 +344,10 @@ formArchivo.addEventListener("submit", async function(e) {
   // FIX: Se reemplaza agregarArchivoASemana (no existía) por la función correcta
   agregarArchivo(semanaSeleccionadaId, nombre, tipo, urlData.publicUrl);
 
-  alert("Archivo subido correctamente 🚀");
-
-  formArchivo.reset();
+formArchivo.reset();
+cerrarModal("modal-archivo");
+renderContenido();
+mostrarMensaje("mensaje-archivo", "Archivo subido correctamente ✅", false);
 });
 
   // Modal preview

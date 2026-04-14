@@ -38,7 +38,7 @@ function iniciarSesion(usuario, password) {
   }
 
   if (encontrado) {
-    localStorage.setItem("sesion", JSON.stringify({
+    sessionStorage.setItem("sesion", JSON.stringify({
       usuario: encontrado.usuario,
       rol: encontrado.rol,
       nombre: encontrado.nombre
@@ -50,7 +50,7 @@ function iniciarSesion(usuario, password) {
 }
 
 function obtenerSesion() {
-  var sesion = localStorage.getItem("sesion");
+  var sesion = sessionStorage.getItem("sesion");
   if (sesion) {
     return JSON.parse(sesion);
   }
@@ -58,7 +58,7 @@ function obtenerSesion() {
 }
 
 function cerrarSesion() {
-  localStorage.removeItem("sesion");
+  sessionStorage.removeItem("sesion");
   window.location.href = "index.html";
 }
 
@@ -395,7 +395,7 @@ function renderSidebar() {
     var s = semanas[i];
     var activa = (semanaSeleccionadaId === s.id) ? " activa" : "";
     html += '<div class="semana-item' + activa + '" data-id="' + s.id + '">';
-    html += '<span class="semana-nombre">📚 ' + s.nombre + '</span>';
+    html += '<span class="semana-nombre">' + s.nombre + '</span>';
     html += '<div class="semana-acciones">';
     html += '<button class="btn-icono btn-del-semana" data-id="' + s.id + '" title="Eliminar">✕</button>';
     html += '</div>';
@@ -453,7 +453,7 @@ function renderContenido() {
   }
 
   var html = '<div class="semana-header">';
-  html += '<h2>📚 ' + semana.nombre + '</h2>';
+  html += '<h2>' + semana.nombre + '</h2>';
   html += '<button class="btn-primario" id="btn-agregar-archivo">+ Agregar archivo</button>';
   html += '</div>';
 
@@ -598,7 +598,7 @@ function renderSidebarUsuario() {
     var s = semanas[i];
     var activa = (semanaSeleccionadaIdUsuario === s.id) ? " activa" : "";
     html += '<div class="semana-item' + activa + '" data-id="' + s.id + '">';
-    html += '<span class="semana-nombre">📚 ' + s.nombre + '</span>';
+    html += '<span class="semana-nombre">' + s.nombre + '</span>';
     html += '<span style="font-size:11px;color:#9ca3af">' + s.archivos.length + ' arch.</span>';
     html += '</div>';
   }
@@ -634,7 +634,7 @@ function renderContenidoUsuario() {
   }
 
   var html = '<div class="semana-header">';
-  html += '<h2>📚 ' + semana.nombre + '</h2>';
+  html += '<h2> ' + semana.nombre + '</h2>';
   html += '<span style="font-size:13px;color:#6b7280">Solo lectura</span>';
   html += '</div>';
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Repositorio Académico UPLA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="login-card">
+
+      <!-- Logo y nombre -->
+      <div class="login-logo-area">
+        <div class="login-logo-circulo">
+          <!-- Si tienes el logo de UPLA, reemplaza esto con: <img src="img/logo-upla.png" alt="UPLA"> -->
+          <img src="LogoUpla2-DdpDj6DU.png" alt="UPLA">
+        </div>
+        <div class="login-universidad">Universidad Peruana Los Andes</div>
+        <div class="login-sistema">Repositorio Académico de Trabajos Semanales</div>
+      </div>
+
+      <!-- Formulario de login -->
+      <form class="login-form" id="form-login">
+        <label for="input-usuario">Usuario</label>
+        <input
+          type="text"
+          id="input-usuario"
+          placeholder="Ingrese su usuario"
+          autocomplete="username"
+        >
+
+        <label for="input-password">Contraseña</label>
+        <input
+          type="password"
+          id="input-password"
+          placeholder="Ingrese su contraseña"
+          autocomplete="current-password"
+        >
+
+        <button type="submit" class="btn-login">Iniciar Sesión</button>
+
+        <p class="login-error" id="login-error"></p>
+      </form>
+
+      <!-- Ayuda de credenciales (solo para demostración) -->
+      <div class="login-ayuda">
+        <strong>Credenciales de prueba:</strong><br>
+        Admin: <code>admin</code> / <code>*********</code><br>
+        Visitante: <code>visitante</code> / <code>upla2024</code>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Inicializar la página de login
+    initLogin();
+  </script>
+
+</body>
+</html>

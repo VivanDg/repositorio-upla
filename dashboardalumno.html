@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repositorio Académico - UPLA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="header-logo">
+        <!-- Logo UPLA: reemplaza con <img src="../img/logo-upla.png" alt="UPLA"> -->
+        <img src="LogoUpla2-DdpDj6DU.png" alt="UPLA">
+      </div>
+      <div class="header-title">
+        <span class="sistema">Repositorio Académico</span>
+        <span class="universidad">Universidad Peruana Los Andes - Huancayo</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge-rol badge-usuario">Alumno</span>
+      <span class="header-user" id="nombre-usuario">---</span>
+      <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Contenido disponible</div>
+
+      <!-- Lista de semanas (solo lectura) -->
+      <div id="lista-semanas">
+        <!-- Se renderiza con JS -->
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+      <div id="contenido-principal">
+        <!-- Se renderiza con JS -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Universidad Peruana Los Andes &mdash; Repositorio Académico &copy; 2024
+  </footer>
+
+  <!-- =============================================
+       MODAL: Previsualización (solo lectura)
+       ============================================= -->
+  <div class="modal-overlay" id="modal-preview">
+    <div class="modal modal-preview">
+      <div class="modal-header">
+        <h3 id="preview-titulo">Previsualización</h3>
+        <button class="modal-cerrar" id="btn-cerrar-preview">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="preview-area" id="preview-area">
+          <!-- Contenido inyectado por JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Inicializar el panel de usuario (solo lectura)
+    initUsuario();
+  </script>
+
+</body>
+</html>

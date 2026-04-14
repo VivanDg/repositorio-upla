@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrador - Repositorio UPLA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="header-logo">
+        <!-- Logo UPLA: reemplaza con <img src="../img/logo-upla.png" alt="UPLA"> -->
+        <img src="LogoUpla2-DdpDj6DU.png" alt="UPLA">
+      </div>
+      <div class="header-title">
+        <span class="sistema">Repositorio Académico</span>
+        <span class="universidad">Universidad Peruana Los Andes - Huancayo</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge-rol badge-admin">Administrador</span>
+      <span class="header-user" id="nombre-usuario">---</span>
+      <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Semanas</div>
+
+      <!-- Lista de semanas -->
+      <div id="lista-semanas">
+        <!-- Se renderiza con JS -->
+      </div>
+
+      <!-- Botón agregar semana -->
+      <div class="sidebar-add">
+        <button class="btn-agregar-semana" id="btn-agregar-semana">+ Nueva semana</button>
+      </div>
+
+      <!-- Formulario inline para nombre de semana -->
+      <div class="form-inline" id="form-semana-inline" style="display:none;">
+        <label style="font-size:12px;font-weight:500;display:block;margin-bottom:5px;">Nombre de la semana</label>
+        <input
+          type="text"
+          id="input-nombre-semana"
+          placeholder="Ej: Semana 1"
+          maxlength="60"
+        >
+        <div class="form-inline-btns">
+          <button class="btn-confirmar" id="btn-confirmar-semana">Guardar</button>
+          <button class="btn-cancelar-inline" id="btn-cancelar-semana">Cancelar</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+      <div id="contenido-principal">
+        <!-- Se renderiza con JS -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Universidad Peruana Los Andes &mdash; Repositorio Académico &copy; 2024
+  </footer>
+
+  <!-- =============================================
+       MODAL: Agregar Archivo
+       ============================================= -->
+  <div class="modal-overlay" id="modal-archivo">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Agregar archivo</h3>
+        <button class="modal-cerrar" id="btn-cerrar-archivo">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-archivo">
+          <label for="input-nombre-archivo">Nombre del archivo *</label>
+          <input
+            type="text"
+            id="input-nombre-archivo"
+            placeholder="Ej: Informe_Semana1.pdf"
+            maxlength="120"
+            required
+          >
+
+          <label for="select-tipo">Tipo de archivo</label>
+          <select id="select-tipo">
+            <option value="pdf">PDF</option>
+            <option value="imagen">Imagen (JPG, PNG)</option>
+            <option value="excel">Excel / Hoja de cálculo</option>
+            <option value="otro">Otro</option>
+          </select>
+
+          <label for="input-url-archivo">URL del archivo (opcional)</label>
+          <input
+            type="file"
+            id="input-file"
+          >
+
+          <div class="modal-footer" style="padding: 0; margin-top: 4px;">
+            <button type="button" class="btn-cancelar" id="btn-cancelar-archivo">Cancelar</button>
+            <button type="submit" class="btn-primario">Guardar archivo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MODAL: Previsualización
+       ============================================= -->
+  <div class="modal-overlay" id="modal-preview">
+    <div class="modal modal-preview">
+      <div class="modal-header">
+        <h3 id="preview-titulo">Previsualización</h3>
+        <button class="modal-cerrar" id="btn-cerrar-preview">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="preview-area" id="preview-area">
+          <!-- Contenido inyectado por JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Inicializar el panel de administrador
+    initAdmin();
+  </script>
+
+</body>
+</html>
